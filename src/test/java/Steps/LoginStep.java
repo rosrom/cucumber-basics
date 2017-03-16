@@ -1,10 +1,10 @@
 package Steps;
 
+import Base.BaseUtil;
 import cucumber.api.DataTable;
 
 import java.util.*;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -12,7 +12,14 @@ import cucumber.api.java.en.Then;
 /**
  * Created by rosroman on 09/03/17.
  */
-public class LoginStep {
+public class LoginStep extends Base.BaseUtil {
+
+    private Base.BaseUtil base;
+
+    public LoginStep(BaseUtil base) {
+        this.base = base;
+    }
+
     @And("^I click login button$")
     public void iClickLoginButton() throws Throwable {
 
@@ -28,6 +35,8 @@ public class LoginStep {
 
     @Then("^I should see the userform page$")
     public void iShouldSeeTheUserformPage() throws Throwable {
+
+        System.out.println("The driver is: " + base.StepInfo);
 
         System.out.println("I should see userform page");
     }
@@ -47,7 +56,7 @@ public class LoginStep {
         //Store all the users
         users = table.asList(User.class);
 
-        for (User user: users){
+        for (User user : users) {
             System.out.println("The UserName is " + user.username);
             System.out.println("The Password is " + user.password);
         }
@@ -57,8 +66,8 @@ public class LoginStep {
     @And("^I enter ([^\"]*) and ([^\"]*)$")
     public void iEnterUsernameAndPassword(String userName, String password) throws Throwable {
 
-            System.out.println("The UserName is " + userName);
-            System.out.println("The Password is " + password);
+        System.out.println("The UserName is " + userName);
+        System.out.println("The Password is " + password);
 
     }
 

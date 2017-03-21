@@ -80,6 +80,12 @@ public class LoginStep extends Base.BaseUtil {
 
     }
 
+    @And("^I verify the count of my salary digits for pts (\\d+)$")
+    public void iVerifyTheCountOfMySalaryDigitsForPts(@Transform(Transformation.SalaryCountTransformer.class) int salary) throws Throwable {
+
+        System.out.println("My salary digits count is :" + salary + "\n");
+    }
+
     public class User {
 
         public String username;

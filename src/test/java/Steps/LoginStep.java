@@ -5,9 +5,11 @@ import cucumber.api.DataTable;
 
 import java.util.*;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.Transform;
 
 /**
  * Created by rosroman on 09/03/17.
@@ -68,6 +70,13 @@ public class LoginStep extends Base.BaseUtil {
 
         System.out.println("The UserName is " + userName);
         System.out.println("The Password is " + password);
+
+    }
+
+    @And("^I enter the users email address as Email:([^\"]*)$")
+    public void iEnterTheUsersEmailAddressAsEmailAdmin(@Transform(Transformation.EmailTransform.class) String email) throws Throwable {
+
+        System.out.println("The Email Address is " + email);
 
     }
 

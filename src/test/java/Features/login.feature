@@ -3,6 +3,7 @@ Feature: LoginFeature
 
   Scenario: Login with correct username and password
     Given I navigate to the login page
+    And I enter the users email address as Email:admin
     And I enter the following details for Login
       | username | password      |
       | admin    | adminpassword |

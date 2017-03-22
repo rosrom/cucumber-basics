@@ -3,13 +3,19 @@ package Steps;
 import Base.BaseUtil;
 import cucumber.api.DataTable;
 
-import java.util.*;
 
-import cucumber.api.PendingException;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.Transform;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 /**
  * Created by rosroman on 09/03/17.
@@ -23,9 +29,10 @@ public class LoginStep extends Base.BaseUtil {
     }
 
     @And("^I click login button$")
-    public void iClickLoginButton() throws Throwable {
+    public void iClickLoginButton() {
 
-        System.out.println("I click login button");
+        base.Driver.findElement(By.name("Login")).submit();
+
     }
 
     @Given("^I navigate to the login page$")
@@ -46,11 +53,6 @@ public class LoginStep extends Base.BaseUtil {
     @And("^I enter the following details for Login$")
     public void iEnterTheFollowingDetailsForLogin(DataTable table) throws Throwable {
 
-      /*   List<List<String>> data = table.raw();
-
-       System.out.println("The Value is : " + data.get(0).get(0).toString());
-        System.out.println("The Value is : " + data.get(0).get(1).toString()); */
-
         //Create an ArrayList
         List<User> users = new ArrayList<User>();
 
@@ -58,8 +60,11 @@ public class LoginStep extends Base.BaseUtil {
         users = table.asList(User.class);
 
         for (User user : users) {
-            System.out.println("The UserName is " + user.username);
-            System.out.println("The Password is " + user.password);
+
+            base.Driver.findElement(By.name("UserName")).sendKeys(user.username);
+            base.Driver.findElement(By.name("Password")).sendKeys(user.password);
+
+
         }
 
     }

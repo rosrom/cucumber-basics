@@ -4,7 +4,6 @@ import Base.BaseUtil;
 import cucumber.api.DataTable;
 
 
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -13,9 +12,11 @@ import junit.framework.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import Pages.LoginPage;
 
 
 /**
@@ -32,7 +33,9 @@ public class LoginStep extends Base.BaseUtil {
     @And("^I click login button$")
     public void iClickLoginButton() {
 
-        base.Driver.findElement(By.name("Login")).submit();
+        LoginPage page = new LoginPage(base.Driver);
+        page.ClickLogin();
+
 
     }
 
@@ -61,10 +64,16 @@ public class LoginStep extends Base.BaseUtil {
         //Store all the users
         users = table.asList(User.class);
 
+        LoginPage page = new LoginPage(base.Driver);
+
         for (User user : users) {
 
-            base.Driver.findElement(By.name("UserName")).sendKeys(user.username);
-            base.Driver.findElement(By.name("Password")).sendKeys(user.password);
+
+            page.Login(user.username, user.password);
+
+            //Para hacerlo llamando aqui a los objetos
+            //base.Driver.findElement(By.name("UserName")).sendKeys(user.username);
+            //base.Driver.findElement(By.name("Password")).sendKeys(user.password);
 
 
         }

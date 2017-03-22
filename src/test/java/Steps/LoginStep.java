@@ -32,13 +32,12 @@ public class LoginStep extends Base.BaseUtil {
     public void iNavigateToTheLoginPage() throws Throwable {
 
         System.out.println("I navigate to the login page\n");
+        base.Driver.navigate().to("http://executeautomation.com/demosite/Login.html");
     }
 
 
     @Then("^I should see the userform page$")
     public void iShouldSeeTheUserformPage() throws Throwable {
-
-        System.out.println("The driver is: " + base.StepInfo);
 
         System.out.println("I should see userform page");
     }
@@ -85,6 +84,7 @@ public class LoginStep extends Base.BaseUtil {
 
         System.out.println("My salary digits count is :" + salary + "\n");
     }
+
 
     public class User {
 

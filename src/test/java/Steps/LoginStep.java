@@ -9,6 +9,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.Transform;
+import junit.framework.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
@@ -46,7 +47,8 @@ public class LoginStep extends Base.BaseUtil {
     @Then("^I should see the userform page$")
     public void iShouldSeeTheUserformPage() throws Throwable {
 
-        System.out.println("I should see userform page");
+        Assert.assertEquals("It's not displayed", base.Driver.findElement(By.id("Initial")).isDisplayed(), true);
+
     }
 
 

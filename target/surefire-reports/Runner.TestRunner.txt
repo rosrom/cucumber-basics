@@ -1,4 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: Runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.033 sec - in Runner.TestRunner
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 17.073 sec <<< FAILURE! - in Runner.TestRunner
+feature(Runner.TestRunner)  Time elapsed: 15.915 sec  <<< FAILURE!
+cucumber.runtime.CucumberException: 
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"InitialWrong"}
+Command duration or timeout: 14 milliseconds
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: {"method":"id","selector":"InitialWrong"}
+Command duration or timeout: 14 milliseconds
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: {"method":"id","selector":"InitialWrong"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
+System info: host: 'ESMADLBI0095', ip: 'fe80:0:0:0:a65e:60ff:fec4:233f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.8.0_121'
+Driver info: driver.version: unknown
+
